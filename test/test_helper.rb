@@ -13,7 +13,7 @@ require 'github/ldap/server'
 require 'minitest/mock'
 require 'minitest/autorun'
 
-require 'mocha/mini_test'
+require 'mocha/minitest'
 
 if ENV.fetch('TESTENV', "apacheds") == "apacheds"
   # Make sure we clean up running test server
@@ -47,6 +47,7 @@ class GitHub::Ldap::Test < Minitest::Test
       custom_schemas:   FIXTURES.join('posixGroup.schema.ldif').to_s,
       user_fixtures:    FIXTURES.join('common/seed.ldif').to_s,
       allow_anonymous:  true,
+      quiet:            false,
       verbose:          ENV.fetch("VERBOSE", "0") == "1"
     }
   end
