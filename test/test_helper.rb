@@ -31,7 +31,7 @@ class GitHub::Ldap::Test < Minitest::Test
 
   def self.run(reporter, options = {})
     start_server
-    super
+    ::Minitest::Result.from self
     stop_server
   end
 
