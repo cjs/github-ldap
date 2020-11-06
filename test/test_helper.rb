@@ -13,7 +13,7 @@ require 'github/ldap/server'
 require 'minitest/mock'
 require 'minitest/autorun'
 
-require 'mocha/minitest'
+require 'mocha/min_itest'
 
 if ENV.fetch('TESTENV', "apacheds") == "apacheds"
   # Make sure we clean up running test server
@@ -31,7 +31,7 @@ class GitHub::Ldap::Test < Minitest::Test
 
   def self.run(reporter, options = {})
     start_server
-    ::Minitest::Result.from super
+    super
     stop_server
   end
 
