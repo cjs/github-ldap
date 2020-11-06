@@ -26,6 +26,9 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
+        bundler: 1
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: gem install bundler
+    - run: bundle install
     - name: Run tests
       run: script/cibuild-apacheds
