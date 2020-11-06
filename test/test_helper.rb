@@ -13,7 +13,7 @@ require 'github/ldap/server'
 require 'minitest/mock'
 require 'minitest/autorun'
 
-require 'mocha/min_itest'
+require 'mocha/mini_test'
 
 if ENV.fetch('TESTENV', "apacheds") == "apacheds"
   # Make sure we clean up running test server
