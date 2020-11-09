@@ -2,6 +2,12 @@
 set -e
 set -x
 
+HOSTS_LINE="127.0.0.1 ghe.dev ad1.ghe.dev ad2.ghe.dev"
+if [ -z "$(grep ghe.dev /etc/hosts)"]
+then
+    echo "$HOSTS_LINE" | sudo tee -a /etc/hosts > /dev/null
+fi
+
 cd `dirname $0`/..
 
 bundle exec rake
